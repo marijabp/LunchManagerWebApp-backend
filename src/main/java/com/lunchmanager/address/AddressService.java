@@ -17,17 +17,18 @@ public class AddressService {
 		addressRepository.save(address);
 	}
 	
-	public void updateAddressInfo(Address address) {
-		addressRepository.save(address);
-	}
-	
-	public Address findByAddressId(Long id) {
-		return addressRepository.findByAddressId(id);
+	public Address findById(Long id) {
+		return addressRepository.findAllById(id);
 	}
 	
 	public List<Address> getAllAddresses(){
 		List<Address> addresses=new ArrayList<>();
 		addressRepository.findAll().forEach(addresses::add);
 		return addresses;
+	}
+
+	public void updateAddressData(Address address) {
+		addressRepository.save(address);
+		
 	}
 }

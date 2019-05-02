@@ -1,5 +1,6 @@
 package com.lunchmanager.address;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,30 +12,32 @@ import javax.persistence.Table;
 public class Address {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long addressId;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
 	
+	@Column(unique = true)
 	private Long userId;
 	private String name;
 	private String number;
 	private String city;
 	
 	public Address() {
-		
 	}
-	public Address(Long addressId, Long userId, String name, String number, String city) {
+	
+	public Address(Long id, Long userId, String name, String number, String city) {
 		super();
-		this.addressId=addressId;
+		this.id=id;
 		this.userId=userId;
 		this.name=name;
 		this.number=number;
 		this.city=city;
 	}
-	public Long getAddressId() {
-		return addressId;
+	
+	public Long getId() {
+		return id;
 	}
-	public void setAddressId(Long addressId) {
-		this.addressId = addressId;
+	public void setId(Long id) {
+		this.id = id;
 	}
 	public Long getUserId() {
 		return userId;
